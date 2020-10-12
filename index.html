@@ -3,9 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
   <title>Chat Code</title>
 </head>
 <body>
-  <h1>This will be an awsome chatroom app for Code students!</h1>
+  <section class="chat-app">
+    <nav class="main-nav">
+      <h1 class="logo">
+        chatCode
+      </h1>
+      <ul class="chat-rooms">
+        <li class="chat-room" id="general"><a href="#">#general</a></li>
+        <li class="chat-room" id="html"> <a href="#">#html</a></li>
+        <li class="chat-room" id="css"><a href="#">#css</a></li>
+        <li class="chat-room" id="java-script"><a href="#">#javaScript</a></li>
+        <li class="chat-room" id="react"><a href="#">#react</a></li>
+      </ul>
+    </nav>
+    <main class="chat-container">
+      <div class="chat-window">
+        <ul class="chat-list"></ul>
+      </div>
+      <form class="new-message">
+        <input type="text" name="message" id="message" placeholder="Type a message">
+        <input type="submit" value="Send">
+      </form>
+    </main>
+  </section>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
