@@ -4,9 +4,23 @@
   box-sizing: border-box;
 }
 
+body {
+  color: #bebebe;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 a {
   text-decoration: none;
   color: #72767d;
+}
+
+.main-nav .logo,
+.chat-nav-top,
+.chat-container input[type="text"],
+.chat-container input[type="submit"] {
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
 }
 
 .chat-app {
@@ -24,6 +38,7 @@ a {
 
 .main-nav .logo {
   color: #f8f8f8;
+  color: rgb(137, 88, 182);
   padding: 10px;
 }
 
@@ -48,14 +63,24 @@ a {
 
 .chat-container {
   background-color: #393c43;
-  color: #f8f8f8;
+  /* color: #f8f8f8; */
   width: 80%;
+}
+
+.chat-nav-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12.5px 20px;
+}
+
+.chat-main {
   padding: 20px;
 }
 
 .chat-container input[type="text"]{
   background-color:#4e5157;
-  color: #f8f8f8;
   color: #bebebe;
   border: none;
   outline: none;
@@ -63,9 +88,6 @@ a {
   border-radius: 20px;
   width: 50%;
   /* overflow-wrap: break-word; */
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
-  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
 }
 
 .chat-container input[type="submit"]{
@@ -76,10 +98,6 @@ a {
   background-color: #2f3136;
   color: #a7a9ac;
   outline: none;
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
-  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
-
 }
 
 .chat-container input[type="submit"]:hover {
