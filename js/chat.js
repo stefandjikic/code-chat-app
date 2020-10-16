@@ -3,6 +3,7 @@ class Chatroom {
     this.chatroom = chatroom;
     this.username = username;
     this.chats = db.collection('chats');
+    this.unsub;
   }
 
   // kreiramo chat objekat
@@ -22,7 +23,10 @@ class Chatroom {
   // postavljanje real-time listenera koji treba da vrati response svaki put kad se desi promena
   // onSnapshot metoda firebase-a.
   getChats(callback){
-    this.chats.onSnapshot(snapshot => {
+    this.unsub = this.chats
+    .where('chatroom','==', this.chatroom)
+    .orderBy('created')
+    .onSnapshot(snapshot => {
       snapshot.docChanges().forEach(change => {
         if(change.type === 'added'){
           //update view
@@ -31,9 +35,21 @@ class Chatroom {
       });
     });
   }
+
+  updateUsername(username){
+    this.username = username;
+  }
+
+  updateChatroom(chatroom){
+    this.chatroom = chatroom;
+    console.log('Room Updated!');
+    if(this.unsub){
+      this.unsub();
+    }
+  }
 }
 
-const chatroom = new Chatroom('css', 'Mirko');
+const chatroom = new Chatroom('general', 'Mirko');
 // console.log(chatroom);
 
 // newChat je asinhrona f-ja, vraca promisu.
@@ -45,3 +61,13 @@ chatroom.getChats((data) => {
   // prosledjujemo kao argument ovu cb funkciju getChats f-ji
   console.log(data);
 })
+
+// updating the room
+setTimeout(()=>{
+  chatroom.updateChatroom('react');
+  chatroom.updateUsername('rasha')
+  chatroom.getChats((data) => {
+    console.log(data);
+  });
+  chatroom.newChat('Hello')
+}, 3000);
