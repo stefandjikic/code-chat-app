@@ -16,7 +16,18 @@ a {
 
 li {
   list-style: none;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.username {
+  font-weight: bold;
+  color: #fff;
+}
+
+.time {
+  font-size: 0.7em;
+  padding-top: 5px;
+  color: #bebebe;
 }
 
 .main-nav .logo,
@@ -30,7 +41,6 @@ li {
 
 .chat-app {
   min-height: 100vh;
-  /* height: 100%; */
   width: 100%;
   display: flex;
 }
@@ -113,7 +123,7 @@ li {
 }
 
 .chat-window {
-  /* height: 88.8vh; */
+  /* min-height: 75vh; */
   color: #f8f8f8;
   margin-bottom: 20px;
 }

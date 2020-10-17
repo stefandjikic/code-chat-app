@@ -6,11 +6,16 @@ class ChatsView{
     this.list = list;
   }
   render(data){
+    const sent = moment(
+      data.created.toDate()
+    )
+    .startOf()
+    .fromNow();
     const html = `
       <li>
         <span class="username">${data.username}:</span>
         <span class="message">${data.message}</span>
-        <div class="time">${data.created.toDate()}</div>
+        <div class="time">${sent}</div>
       </li>
     `;
     this.list.innerHTML += html;
