@@ -49,25 +49,19 @@ class Chatroom {
   }
 }
 
-const chatroom = new Chatroom('general', 'Mirko');
-// console.log(chatroom);
-
 // newChat je asinhrona f-ja, vraca promisu.
 // chatroom.newChat("Pozdrav svima!!!")
 // .then(() => console.log('chat added'))
 // .catch(err => console.log(err));
 
-chatroom.getChats((data) => {
-  // prosledjujemo kao argument ovu cb funkciju getChats f-ji
-  console.log(data);
-})
+
 
 // updating the room
-setTimeout(()=>{
-  chatroom.updateChatroom('react');
-  chatroom.updateUsername('rasha')
-  chatroom.getChats((data) => {
-    console.log(data);
-  });
-  chatroom.newChat('Hello')
-}, 3000);
+// setTimeout(()=>{
+//   chatroom.updateChatroom('react');
+//   chatroom.updateUsername('rasha')
+//   chatroom.getChats((data) => {
+//     console.log(data);
+//   });
+//   chatroom.newChat('Hello')
+// }, 3000);
