@@ -7,6 +7,8 @@ const user_name = document.getElementById('user_name');
 const rooms = document.querySelector('.chat-rooms');
 const activeRoom = document.querySelector('.active-room');
 const settingsBtn = document.querySelector('.settings-heading');
+const settings = document.querySelector('.display-toggle');
+const dropIcon = document.querySelector('.settings-icon');
 
 // add new chat on submit
 newMessageForm.addEventListener('submit', e => {
@@ -59,4 +61,9 @@ chatroom.getChats((data) => {
   // prosledjujemo kao argument ovu cb funkciju getChats f-ji
   // console.log(data);
   chatView.render(data);
+})
+
+settingsBtn.addEventListener('click', ()=>{
+  settings.classList.toggle('d-show');
+  dropIcon.classList.toggle('rotate');
 })
