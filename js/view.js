@@ -20,4 +20,7 @@ class ChatsView{
     `;
     this.list.innerHTML += html;
   }
+  clearChat(){
+    this.list.innerHTML = '';
+  };
 }

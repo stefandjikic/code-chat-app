@@ -9,6 +9,7 @@
 <body>
   <section class="chat-app">
     <nav class="main-nav">
+      <div class="nav-container">
       <h1 class="logo">
         chatCode
       </h1>
@@ -16,23 +17,40 @@
         <li class="chat-room" id="general"><a href="#">#general</a></li>
         <li class="chat-room" id="html"> <a href="#">#html</a></li>
         <li class="chat-room" id="css"><a href="#">#css</a></li>
-        <li class="chat-room" id="java-script"><a href="#">#javaScript</a></li>
+        <li class="chat-room" id="javaScript"><a href="#">#javaScript</a></li>
         <li class="chat-room" id="react"><a href="#">#react</a></li>
       </ul>
+      <div class="settings">
+        <h2 class="settings-heading">
+          <span class="settings-icon">+</span>
+          <span>User Settings</span>
+        </h2>
+        <div class="display-toggle">
+        <form class="new-username">
+          <label for="user">Change username:</label>
+          <input type="text" id="name" name="name" placeholder="Username" autocomplete="off">
+          <input type="submit" value="Change">
+        </form>
+        <div class="update-msg"></div>
+      </div>
+      </div>
+    </div>
     </nav>
     <main class="chat-container">
       <div class="chat-nav-top">
         <span class="active-room">#general</span>
-        <span>User</span>
+        <span id="user_name"></span>
       </div>
       <div class="chat-main">
         <div class="chat-window">
           <ul class="chat-list"></ul>
         </div>
+        <div class="write-msg">
         <form class="new-message">
           <input type="text" id="message" name="message" placeholder="Type a message" autocomplete="off">
           <input type="submit" value="Send">
         </form>
+      </div>
       </div>
     </main>
   </section>
