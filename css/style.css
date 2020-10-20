@@ -30,7 +30,7 @@
 body {
   color: var(--text-color-secondary);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  scrollbar-color: #2f3136 rgb(137, 88, 182, 0.2);
+  scrollbar-color: var(--main-nav-color) rgb(137, 88, 182, 0.2);
 }
 
 a {
