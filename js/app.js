@@ -11,6 +11,8 @@ const settings = document.querySelector('.display-toggle');
 const dropIcon = document.querySelector('.settings-icon');
 const darkModeBtn = document.querySelector('.dark-toggle-btn');
 const chatWindow = document.querySelector('.chat-window');
+const hamburger = document.getElementById('hamburger');
+const mainNav = document.querySelector('.main-nav');
 
 // add new chat on submit
 newMessageForm.addEventListener('submit', e => {
@@ -80,12 +82,14 @@ chatroom.getChats((data) => {
   chatView.render(data);
 });
 
+// toggle settings
+
 settingsBtn.addEventListener('click', ()=>{
   settings.classList.toggle('d-show');
   dropIcon.classList.toggle('rotate');
 });
 
-// Toggle dark mode
+// toggle dark mode
 
 let lightMode = localStorage.getItem('lightMode');
 
@@ -113,4 +117,20 @@ darkModeBtn.addEventListener('click', () => {
     enableDarkMode();
   }
 });
+
+// hamburger menu
+
+hamburger.addEventListener('click', () => {
+  mainNav.classList.toggle('d-none');
+});
+
+  rooms.addEventListener('click', (e) => {
+    if(e.target.tagName === 'LI' && window.innerWidth < 500){
+      mainNav.classList.remove('show-menu')
+      mainNav.classList.add('d-none');
+    }
+  })
+
+
  
+

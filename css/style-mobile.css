@@ -1,0 +1,35 @@
+@media screen and (max-width: 768px) {
+  .chat-container {
+    width: 70%;
+    left: 30%;
+  }
+
+  .chat-app .main-nav {
+    width: 30%;
+    /* display: none; */
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .chat-container {
+    width: 100%;
+    left: 0%;
+  }
+
+  .chat-app .main-nav {
+    width: 80%;
+    z-index: 2;
+  }
+
+  .d-none {
+    display: none;
+  }
+
+  .show-menu {
+    display: block;
+  }
+
+  #hamburger {
+    display: inline-block;
+  }
+}

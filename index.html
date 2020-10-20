@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style-mobile.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
   <title>Chat Code</title>
 </head>
 <body>
@@ -14,11 +16,11 @@
         chatCode
       </h1>
       <ul class="chat-rooms">
-        <li class="chat-room" id="general"><a href="#">#general</a></li>
-        <li class="chat-room" id="html"> <a href="#">#html</a></li>
-        <li class="chat-room" id="css"><a href="#">#css</a></li>
-        <li class="chat-room" id="javaScript"><a href="#">#javaScript</a></li>
-        <li class="chat-room" id="react"><a href="#">#react</a></li>
+        <li class="chat-room" id="general">#general</li>
+        <li class="chat-room" id="html"> #html</li>
+        <li class="chat-room" id="css">#css</li>
+        <li class="chat-room" id="javaScript">#javaScript</li>
+        <li class="chat-room" id="react">#react</li>
       </ul>
       <div class="settings">
         <h2 class="settings-heading">
@@ -44,7 +46,10 @@
     <main class="chat-container">
       <div class="chat-nav-top">
         <span class="active-room">#general</span>
+        <div class="user-and-burger">
         <span id="user_name"></span>
+        <i id="hamburger" class="fas fa-bars"></i>
+      </div>
       </div>
       <div class="chat-main">
         <div class="chat-window">
