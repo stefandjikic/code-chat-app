@@ -9,16 +9,27 @@ const activeRoom = document.querySelector('.active-room');
 const settingsBtn = document.querySelector('.settings-heading');
 const settings = document.querySelector('.display-toggle');
 const dropIcon = document.querySelector('.settings-icon');
+const darkModeBtn = document.querySelector('.dark-toggle-btn');
+const chatWindow = document.querySelector('.chat-window');
 
 // add new chat on submit
 newMessageForm.addEventListener('submit', e => {
   e.preventDefault();
-  const message = newMessageForm.message.value.trim();
-  console.log(message);
-  //zovemo asinhronu newChat f-ju
-  chatroom.newChat(message)
-  .then(()=>newMessageForm.reset())
-  .catch(err => console.log(err));
+  if(newMessageForm.message.value === ''){
+    alert('Write Something');
+  } else{
+    const message = newMessageForm.message.value.trim();
+    // console.log(message);
+    //zovemo asinhronu newChat f-ju
+    chatroom.newChat(message)
+    .then(()=>{
+      newMessageForm.reset();
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+     })
+    .catch(err => console.log(err));
+    // chatWindow.scrollTop = chatWindow.scrollHeight;
+  }
+
 });
 
 // check ls for a name
@@ -29,13 +40,19 @@ user_name.innerText = usernameLs;
 newUsernameForm.addEventListener('submit', e =>{
   e.preventDefault();
   const newUsername = newUsernameForm.name.value.trim();
-  chatroom.updateUsername(newUsername);
-  // clear input
-  newUsernameForm.reset();
-  //show update
-  updateMsg.innerText = 'Username updated!';
-  setTimeout(()=>updateMsg.innerText = '',2000);
-  user_name.innerText = `${newUsername}`;
+  if(newUsernameForm.name.value === ''){
+    updateMsg.innerText = 'Please enter something';
+    setTimeout(()=>updateMsg.innerText = '',1000);
+    user_name.innerText = `${newUsername}`;
+  } else{
+    chatroom.updateUsername(newUsername);
+    // clear input
+    newUsernameForm.reset();
+    //show update
+    updateMsg.innerText = 'Username updated!';
+    setTimeout(()=>updateMsg.innerText = '',2000);
+    user_name.innerText = `${newUsername}`;
+  }
 });
 
 // update the chatroom
@@ -61,9 +78,39 @@ chatroom.getChats((data) => {
   // prosledjujemo kao argument ovu cb funkciju getChats f-ji
   // console.log(data);
   chatView.render(data);
-})
+});
 
 settingsBtn.addEventListener('click', ()=>{
   settings.classList.toggle('d-show');
   dropIcon.classList.toggle('rotate');
-})
+});
+
+// Toggle dark mode
+
+let lightMode = localStorage.getItem('lightMode');
+
+const enableLightMode = () => {
+  document.body.classList.add('lightmode');
+  localStorage.setItem('lightMode', 'enabled');
+  darkModeBtn.innerHTML = "ON"
+};
+
+const enableDarkMode = () => {
+  document.body.classList.remove('lightmode');
+  localStorage.setItem('lightMode', null);
+  darkModeBtn.innerHTML = "OFF"
+};
+
+if(lightMode === 'enabled'){
+  enableLightMode();
+}
+
+darkModeBtn.addEventListener('click', () => {
+  lightMode = localStorage.getItem('lightMode');
+  if(lightMode !== 'enabled'){
+    enableLightMode();
+  } else {
+    enableDarkMode();
+  }
+});
+ 
