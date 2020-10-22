@@ -6,7 +6,19 @@
 
   .chat-app .main-nav {
     width: 30%;
-    /* display: none; */
+  }
+
+  .weather {
+    bottom: 1px;
+    right: unset;
+    left: 0%;
+    font-size: 0.65em;
+    padding: 10px;
+    border-radius: 5px;
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    background-position: center;
   }
 }
 
@@ -31,5 +43,20 @@
 
   #hamburger {
     display: inline-block;
+  }
+
+  .weather {
+    bottom: unset;
+    top: 0px;
+    left: auto;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0;
+    padding: 15px 25px 15px 15px;
+    margin-right: 5px;
+    background-color: transparent;
+    box-shadow: unset;
+    width: 150px;
+    color: var(--user-chat-color);
   }
 }

@@ -7,6 +7,7 @@
   --link-color: #72767d;
   --input-color: #4e5157;
   --user-chat-color: #fff;
+  --weather-color : rgba(47, 49, 54, 0.8);
 }
 
 .lightmode {
@@ -19,6 +20,7 @@
   --link-color: #cfc9c9;
   --input-color: #bebebe;
   --user-chat-color: #68217a;
+  --weather-color: rgba(104, 33, 122, 0.8);
 }
 
 * {
@@ -151,7 +153,8 @@ li {
 .main-nav .logo,
 .chat-nav-top,
 .chat-container input[type="text"],
-.chat-container input[type="submit"] {
+.chat-container input[type="submit"],
+.weather {
   -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
   -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
   box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.2);
@@ -313,4 +316,27 @@ li {
   -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
   -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
   box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
+}
+
+.weather {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  padding: 20px;
+  border-top: 1px solid var(--main-chat-color);
+  color: var(--primary-color);
+  background-color: var(--weather-color);
+  border-radius: 50%;
+  font-size: 0.7em;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+#temp-icon {
+  width: 70%;
+  height: auto;
+}
+
+.temp {
+  font-weight: bold;
 }
