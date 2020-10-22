@@ -45,7 +45,6 @@ newUsernameForm.addEventListener('submit', e =>{
   if(newUsernameForm.name.value === ''){
     updateMsg.innerText = 'Please enter something';
     setTimeout(()=>updateMsg.innerText = '',1000);
-    user_name.innerText = `${newUsername}`;
   } else{
     chatroom.updateUsername(newUsername);
     // clear input
