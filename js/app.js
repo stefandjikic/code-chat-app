@@ -22,7 +22,6 @@ newMessageForm.addEventListener('submit', e => {
   } else{
     const message = newMessageForm.message.value.trim();
     // console.log(message);
-    //zovemo asinhronu newChat f-ju
     chatroom.newChat(message)
     .then(()=>{
       newMessageForm.reset();
@@ -34,11 +33,9 @@ newMessageForm.addEventListener('submit', e => {
 
 });
 
-// check ls for a name
 const usernameLs = localStorage.username ? localStorage.username : 'User';
 user_name.innerText = usernameLs;
 
-// update username
 newUsernameForm.addEventListener('submit', e =>{
   e.preventDefault();
   const newUsername = newUsernameForm.name.value.trim();
@@ -47,7 +44,6 @@ newUsernameForm.addEventListener('submit', e =>{
     setTimeout(()=>updateMsg.innerText = '',1000);
   } else{
     chatroom.updateUsername(newUsername);
-    // clear input
     newUsernameForm.reset();
     //show update
     updateMsg.innerText = 'Username updated!';
@@ -62,9 +58,8 @@ rooms.addEventListener('click', e => {
   if(e.target.tagName === 'LI'){
     chatView.clearChat();
     chatroom.updateChatroom(e.target.getAttribute('id'));
-    // id je value sobe koju smo kliknuli; Prsoledjujemo ga kao argument metodi updateChatroom();
     activeRoom.innerHTML = e.target.getAttribute('id');
-    //pozvati getChats() i proslediti cb f-ju koja renderuje chat iz nove sobe.
+    //pass cb func which renders chat from nove room.
     chatroom.getChats(chat => chatView.render(chat));
   };
 });
@@ -87,8 +82,6 @@ settingsBtn.addEventListener('click', ()=>{
   settings.classList.toggle('d-show');
   dropIcon.classList.toggle('rotate');
 });
-
-// toggle dark mode
 
 let lightMode = localStorage.getItem('lightMode');
 
@@ -116,8 +109,6 @@ darkModeBtn.addEventListener('click', () => {
     enableDarkMode();
   }
 });
-
-// hamburger menu
 
 hamburger.addEventListener('click', () => {
   mainNav.classList.toggle('d-none');

@@ -6,7 +6,6 @@ class Chatroom {
     this.unsub;
   }
 
-  // kreiramo chat objekat
   async newChat(message){
     const date = new Date();
     const chat = {
@@ -15,13 +14,12 @@ class Chatroom {
       chatroom:this.chatroom,
       created: firebase.firestore.Timestamp.fromDate(date)
     };
-    // storujemo chat u bazu
+    // store chat
     const response = await this.chats.add(chat);
     return response;
   }
 
-  // postavljanje real-time listenera koji treba da vrati response svaki put kad se desi promena
-  // onSnapshot metoda firebase-a.
+  //real-time listener -returns response on change
   getChats(callback){
     this.unsub = this.chats
     .where('chatroom','==', this.chatroom)
@@ -50,19 +48,3 @@ class Chatroom {
   }
 }
 
-// newChat je asinhrona f-ja, vraca promisu.
-// chatroom.newChat("Pozdrav svima!!!")
-// .then(() => console.log('chat added'))
-// .catch(err => console.log(err));
-
-
-
-// updating the room
-// setTimeout(()=>{
-//   chatroom.updateChatroom('react');
-//   chatroom.updateUsername('rasha')
-//   chatroom.getChats((data) => {
-//     console.log(data);
-//   });
-//   chatroom.newChat('Hello')
-// }, 3000);
